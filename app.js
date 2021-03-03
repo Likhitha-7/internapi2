@@ -55,7 +55,7 @@ app.get('/rest',(req,res) => {
     sortcondition={cost:Number(req.query.sort)};
   }
     //meal +cost
-    if(req.query.mealtype && req.query.lcost && req.query.hcost){
+    else if(req.query.mealtype && req.query.lcost && req.query.hcost){
       condition={$and:[{"type.mealtype":req.query.mealtype},{cost:{$lt:Number(req.query.hcost),$gt:Number(req.query.lcost)}}]}
     }
     //meal +city
